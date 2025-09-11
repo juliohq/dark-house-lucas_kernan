@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dua3ml877xjj5"]
+
+[node name="Sound" type="AudioStreamPlayer"]
+autoplay = true
+
+[connection signal="finished" from="." to="." method="queue_free"]

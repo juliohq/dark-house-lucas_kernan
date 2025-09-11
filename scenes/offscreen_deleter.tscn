@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bps1cwjayqu0m"]
+
+[ext_resource type="Script" uid="uid://bj7aspeojiypx" path="res://scenes/offscreen_deleter.gd" id="1_pmln6"]
+
+[node name="OffscreenDeleter" type="VisibleOnScreenNotifier2D"]
+script = ExtResource("1_pmln6")
+
+[connection signal="screen_entered" from="." to="." method="_screen_entered"]
+[connection signal="screen_exited" from="." to="." method="_screen_exited"]

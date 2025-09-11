@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb5xgb1r1rlhp"]
+
+[ext_resource type="Script" uid="uid://crwpf07agphi6" path="res://levels/level.gd" id="1_6i3tb"]
+[ext_resource type="TileSet" uid="uid://dhr264lyjpv58" path="res://levels/tileset.tres" id="2_7emdn"]
+[ext_resource type="PackedScene" uid="uid://dsl842cl3a2qr" path="res://ui/ui.tscn" id="2_jedpt"]
+[ext_resource type="Material" uid="uid://0pw8grea0v1m" path="res://scenes/multiply.tres" id="3_safpt"]
+[ext_resource type="PackedScene" uid="uid://ddt86d6h1b0bc" path="res://autoloads/music_stream_player.tscn" id="4_uf75n"]
+
+[sub_resource type="Gradient" id="Gradient_5mrsh"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_safpt"]
+gradient = SubResource("Gradient_5mrsh")
+width = 160
+height = 90
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_6i3tb")
+metadata/_edit_lock_ = true
+
+[node name="World" type="Node2D" parent="."]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Tiles" type="TileMapLayer" parent="World"]
+tile_set = ExtResource("2_7emdn")
+metadata/_edit_lock_ = true
+
+[node name="SpawnPoints" type="Node2D" parent="World"]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="Eyesight" type="CanvasLayer" parent="."]
+
+[node name="Eyesight" type="TextureRect" parent="Eyesight"]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("3_safpt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_safpt")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." instance=ExtResource("2_jedpt")]
+
+[node name="Music" parent="." instance=ExtResource("4_uf75n")]

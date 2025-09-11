@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7v28i4438tn4"]
+
+[ext_resource type="Texture2D" uid="uid://dfm72t178lqe4" path="res://assets/sprites/ghost.png" id="1_dj2ci"]
+[ext_resource type="Script" uid="uid://buqtejgrh8ebo" path="res://characters/ghost.gd" id="1_yxnnu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxnnu"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_yxnnu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dj2ci"]
+resource_name = "WALK"
+length = 1.00003
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxnnu"]
+_data = {
+&"RESET": SubResource("Animation_yxnnu"),
+&"WALK": SubResource("Animation_dj2ci")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6ax1"]
+radius = 8.0
+
+[node name="Ghost" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_yxnnu")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_dj2ci")
+offset = Vector2(0, -8)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yxnnu")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yxnnu")
+}
+autoplay = "WALK"
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_v6ax1")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_player_entered"]
