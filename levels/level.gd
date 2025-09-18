@@ -2,8 +2,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	%Eyesight.show()
-	
 	# Spawn ghost
 	var ghost := preload("res://characters/ghost.tscn").instantiate()
 	var spawn_point: Node2D = %SpawnPoints.get_children().pick_random()

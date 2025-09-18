@@ -60,5 +60,5 @@ limit_right = 1696
 limit_bottom = 1136
 limit_smoothed = false
 
-[node name="Music" parent="." index="3"]
+[node name="Music" parent="." index="2"]
 stream = SubResource("Resource_olatg")
