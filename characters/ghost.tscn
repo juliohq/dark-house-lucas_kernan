@@ -73,4 +73,7 @@ collision_layer = 0
 [node name="Collision" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_v6ax1")
 
+[node name="Agent" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_player_entered"]

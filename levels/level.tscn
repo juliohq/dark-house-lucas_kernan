@@ -13,7 +13,7 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
 
-[node name="Tiles" type="TileMapLayer" parent="World"]
+[node name="Tiles" type="TileMapLayer" parent="World" groups=["navigation_polygon_source_geometry_group"]]
 tile_set = ExtResource("2_7emdn")
 metadata/_edit_lock_ = true
 
