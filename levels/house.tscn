@@ -9,8 +9,6 @@
 [sub_resource type="Resource" id="Resource_olatg"]
 script = ExtResource("3_0bg5l")
 stream = ExtResource("4_srnql")
-volume = 1.0
-pitch_scale = 1.0
 metadata/_custom_type_script = "uid://i4klypgfef0x"
 
 [node name="House" instance=ExtResource("1_u4vj8")]
