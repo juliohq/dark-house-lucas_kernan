@@ -1,7 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://d1wk2tseps8om"]
+[gd_scene load_steps=18 format=3 uid="uid://d1wk2tseps8om"]
 
 [ext_resource type="PackedScene" uid="uid://7vhkurl7a7ci" path="res://characters/character.tscn" id="1_po52a"]
-[ext_resource type="Script" uid="uid://cbwcg1wc4knd" path="res://characters/player.gd" id="2_mxeg7"]
 [ext_resource type="PackedScene" uid="uid://cg6jln88qrf4q" path="res://scenes/clamp.tscn" id="3_il8kk"]
 [ext_resource type="Texture2D" uid="uid://0oeqs30ralbc" path="res://assets/sprites/adam.png" id="3_j31ep"]
 [ext_resource type="Script" uid="uid://bbiqgsbfy610n" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_51cmi"]
@@ -177,7 +176,6 @@ _data = {
 
 [node name="Player" node_paths=PackedStringArray("animator") groups=["players"] instance=ExtResource("1_po52a")]
 collision_layer = 1
-script = ExtResource("2_mxeg7")
 animator = NodePath("Animator")
 
 [node name="Sprite" type="Sprite2D" parent="." index="0"]
