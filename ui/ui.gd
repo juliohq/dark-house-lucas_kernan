@@ -7,6 +7,7 @@ var time := TIME
 
 
 func _ready() -> void:
+	Events.stamina_changed.connect(_stamina_changed)
 	Events.game_finished.connect(_game_finished)
 	Events.game_over.connect(_game_over)
 
@@ -25,6 +26,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_cancel"):
 		get_viewport().set_input_as_handled()
 		add_child(preload("res://ui/pause.tscn").instantiate())
+
+
+func _stamina_changed(stamina: float) -> void:
+	%StaminaBar.value = stamina
 
 
 func _game_finished() -> void:

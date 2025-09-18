@@ -1,6 +1,8 @@
 extends Node
 
 
+## Emitted when the stamina has changed.
+signal stamina_changed(stamina)
 ## Emitted when the game is paused.
 signal game_paused()
 ## Emitted when the game is resumed.
